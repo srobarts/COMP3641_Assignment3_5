@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"  
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html">
    <h:head>
@@ -31,10 +32,15 @@
                <h:inputText value="#{name.first}" rendered="#{name.editable}" size="10"/>
                <h:outputText value="#{name.first}" rendered="#{not name.editable}"/>
             </h:column>
+            <h:column>
+            	<f:facet name="header">
+                  <h:outputText value="#{msgs.deleteColumn}" style="font-weight: bold"/>
+               </f:facet>
+               <h:commandLink value="Delete" action="#{tableData.deleteRow(name)}"/>
+            </h:column>
          </h:dataTable>
          <h:commandButton value="#{msgs.saveChangesButtonText}" 
                           action="#{tableData.save}"/>
       </h:form>
-
 	</h:body>
 </html>
