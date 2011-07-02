@@ -9,18 +9,23 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
+	private int id;
 	private String first;
 	private String last;
 	private String address;
 	private String phone;
 	private boolean editable;
 
-   public Customer(String first, String last, String address, String phone) {
+   public Customer(int id, String first, String last, String address, String phone) {
+	  this.id = id;
       this.first = first;
       this.last = last;
       this.address = address;
       this.phone = phone;
    }
+   
+   public void setId(int newValue) { id = newValue; }
+   public int getId() { return id; }
 
    public void setFirst(String newValue) { first = newValue; }
    public String getFirst() { return first; }

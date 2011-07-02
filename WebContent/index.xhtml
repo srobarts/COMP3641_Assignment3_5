@@ -21,16 +21,16 @@
                <h:selectBooleanCheckbox value="#{customer.editable}" onclick="submit()"/>
             </h:column>
             <h:column>
-               <f:facet name="header">
-                  <h:outputText value="#{msgs.lastnameColumn}" style="font-weight: bold"/>
-               </f:facet>
+            	<f:facet name="header">#{msgs.customerIdHeader}</f:facet>
+            	<h:outputText value="#{customer.id}" />            
+            </h:column>
+            <h:column>
+               <f:facet name="header">#{msgs.firstNameHeader}</f:facet>
                <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
                <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
             </h:column>
             <h:column>
-               <f:facet name="header">
-                  <h:outputText value="#{msgs.firstnameColumn}" style="font-weight: bold"/>
-               </f:facet>
+               <f:facet name="header">#{msgs.lastNameHeader}</f:facet>
                <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
                <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
             </h:column>
@@ -41,7 +41,7 @@
                <h:commandLink value="Delete" action="#{tableData.deleteRow(customer)}"/>
             </h:column>
          </h:dataTable>
-         <h:commandButton value="#{msgs.saveChangesButtonText}" 
+         <h:commandButton value="#{msgs.changesButtonText}" 
                           action="#{tableData.save}"/>
       </h:form>
 	</h:body>
