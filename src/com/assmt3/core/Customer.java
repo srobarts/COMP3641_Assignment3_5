@@ -1,7 +1,12 @@
 package com.assmt3.core;
 
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean; 
+// or import javax.inject.Named;
+import javax.faces.bean.SessionScoped;
 
+@ManagedBean // or @Named
+@SessionScoped
 public class Customer implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String first;
@@ -31,4 +36,5 @@ public class Customer implements Serializable {
    
    public boolean isEditable() { return editable; }
    public void setEditable(boolean newValue) { editable = newValue; }
+   
 }

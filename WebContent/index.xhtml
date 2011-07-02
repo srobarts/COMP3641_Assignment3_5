@@ -11,32 +11,34 @@
    </h:head>
    <h:body>
    		<h:form>
-         <h:dataTable value="#{tableData.customers}" var="name">
+         <h:dataTable value="#{tableData.customers}" var="customer"
+                      styleClass="customers" headerClass="customersHeader"
+                      columnClasses="custid,name">
             <h:column>
                <f:facet name="header">
                   <h:outputText value="#{msgs.editColumn}" style="font-weight: bold"/>
                </f:facet>
-               <h:selectBooleanCheckbox value="#{name.editable}" onclick="submit()"/>
+               <h:selectBooleanCheckbox value="#{customer.editable}" onclick="submit()"/>
             </h:column>
             <h:column>
                <f:facet name="header">
                   <h:outputText value="#{msgs.lastnameColumn}" style="font-weight: bold"/>
                </f:facet>
-               <h:inputText value="#{name.last}" rendered="#{name.editable}" size="10"/>
-               <h:outputText value="#{name.last}" rendered="#{not name.editable}"/>
+               <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
+               <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
             </h:column>
             <h:column>
                <f:facet name="header">
                   <h:outputText value="#{msgs.firstnameColumn}" style="font-weight: bold"/>
                </f:facet>
-               <h:inputText value="#{name.first}" rendered="#{name.editable}" size="10"/>
-               <h:outputText value="#{name.first}" rendered="#{not name.editable}"/>
+               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
+               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
             </h:column>
             <h:column>
             	<f:facet name="header">
                   <h:outputText value="#{msgs.deleteColumn}" style="font-weight: bold"/>
                </f:facet>
-               <h:commandLink value="Delete" action="#{tableData.deleteRow(name)}"/>
+               <h:commandLink value="Delete" action="#{tableData.deleteRow(customer)}"/>
             </h:column>
          </h:dataTable>
          <h:commandButton value="#{msgs.saveChangesButtonText}" 
