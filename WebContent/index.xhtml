@@ -10,39 +10,47 @@
       <title>#{msgs.pageTitle}</title>
    </h:head>
    <h:body>
-   		<h:form>
-         <h:dataTable value="#{tableData.customers}" var="customer"
-                      styleClass="customers" headerClass="customersHeader"
-                      columnClasses="custid,name">
-            <h:column>
-               <f:facet name="header">
-                  <h:outputText value="#{msgs.editColumn}" style="font-weight: bold"/>
-               </f:facet>
-               <h:selectBooleanCheckbox value="#{customer.editable}" onclick="submit()"/>
-            </h:column>
-            <h:column>
-            	<f:facet name="header">#{msgs.customerIdHeader}</f:facet>
-            	<h:outputText value="#{customer.id}" />            
-            </h:column>
-            <h:column>
-               <f:facet name="header">#{msgs.firstNameHeader}</f:facet>
-               <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
-               <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
-            </h:column>
-            <h:column>
-               <f:facet name="header">#{msgs.lastNameHeader}</f:facet>
-               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
-               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
-            </h:column>
-            <h:column>
-            	<f:facet name="header">
-                  <h:outputText value="#{msgs.deleteColumn}" style="font-weight: bold"/>
-               </f:facet>
-               <h:commandLink value="Delete" action="#{tableData.deleteRow(customer)}"/>
-            </h:column>
-         </h:dataTable>
-         <h:commandButton value="#{msgs.changesButtonText}" 
-                          action="#{tableData.save}"/>
-      </h:form>
+   <div id="wrapper">
+   		<div id="header">
+   			<h1>Comp 3641 - JSF Table Data</h1>
+   		</div>
+   		<div id="content">
+	   		<h:form>
+	         <h:dataTable value="#{tableData.customers}" var="customer"
+	                      styleClass="customers" headerClass="customersHeader"
+	                      columnClasses="del,edit,id,last,first,changes">
+	            <h:column>
+	            	<f:facet name="header">#{msgs.deleteHeader}</f:facet>
+	               <h:commandLink value="Delete" action="#{tableData.deleteRow(customer)}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.editableHeader}</f:facet>
+	               <h:selectBooleanCheckbox value="#{customer.editable}" onclick="submit()"/>
+	            </h:column>
+	            <h:column>
+	            	<f:facet name="header">#{msgs.customerIdHeader}</f:facet>
+	            	<h:outputText value="#{customer.id}" />            
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.firstNameHeader}</f:facet>
+	               <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.lastNameHeader}</f:facet>
+	               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	            	<f:facet name="header">#{msgs.updateHeader}</f:facet>
+	            	<h:commandButton value="#{msgs.changesButtonText}" action="#{tableData.save}"/>
+	            </h:column>
+	         </h:dataTable>
+	      </h:form>
+      </div> <!-- content -->
+      <div id="footer">
+      	<p>Copyright 2011 Scott Robarts</p>
+      </div>
+    </div> <!-- wrapper -->
 	</h:body>
 </html>

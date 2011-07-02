@@ -1,111 +1,275 @@
-.customers {
-   border: thin solid black;
+@CHARSET "UTF-8";
+
+html, body{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+	background-color:#eee;
+	font-size:12px;
+	margin: 0;
+    padding: 0;
 }
+
+a {
+	text-decoration:none;
+	color:#777;
+}
+		
+a:hover {
+	color:#A60000;
+	text-decoration:underline;
+	}
+
+/********************************** JSF Specific Styling ***********************************/
+.customers {
+   table-layout:fixed;
+	border:1px solid #777;
+	border-collapse:collapse;
+}
+
+.customers td {
+	padding:10px;
+}
+
 .customersHeader {
-   text-align: center;
-   font-style: italic;
-   color: Snow;
-   background: Teal;
+   background-color:#777;
+	color:#FFF;
+	height:20px;
+	padding:5px;
+	font-size:1.0em;
 }
 .customersFooter {
    font-size: 0.75em;
    text-align: center;
    background: PowderBlue;
 }
-.delete {
+.del {
    text-align: center;
    color: Black;
-   background: Red;
+   background:#ccc;
 }
-.custid {
+.id {
    height: 25px;
    text-align: center;
-   background: MediumTurquoise;
+   background:#fff;
 }
-.name {
+
+.edit {
+	height: 25px;
+   text-align: center;
+   background:#ccc;
+}
+	
+.last {
    text-align: left;
-   background: PowderBlue;
+   background: #fff;
 }
-.firstName {
-   width: 6em;
+
+.first {
    text-align: left;
-   color: Black;
-   background: MediumTurquoise;
+   background: #fff;
 }
+
 .age {
-   width: 3em;
    text-align: center;
-   color: Black;
-   background: PowderBlue;
+   background: #fff;
 }
-.sex {
-   width: 3em;
-   text-align: center;
-   color: Black;
-   background: MediumTurquoise;
-}
+
 .city {
-   width: 9em;
    text-align: center;
-   color: Black;
-   background: PowderBlue;
+   background: #fff;
 }
+
 .state {
-   width: 3em;
    text-align: center;
-   color: Black;
-   background: MediumTurquoise;
+   background: #fff;
 }
-.zip {
-   width: 6em;
+
+.code {
    text-align: center;
-   background: PowderBlue;
+   background: #fff;
 }
+
 .evenRow {
    background: PowderBlue;
 }
+
 .oddRow {
    background: MediumTurquoise;
    text-style: italic;
 }
+
 .pageLink {
    font-size: 0.75em;
 }
+
 .editableControl {
    text-align:Left;
 }
+
 .controlPanel {
    text-align:left;
 }
+
 .page {
    text-align:left;
 }
+
 .bulbImage {
    border-width: 0px;
 }
+
 .emphasis {
    font-size: 1.35em;
    font-style: italic;
 }
+
 .value {
    font-style: italic;
 }
+
 .controlLeft {
    width: 45px;
    vertical-align: top;
    text-align:left;
 }
+
 .controlMiddle {
    width: 50px;
    vertical-align: top;
    text-align:left;
 }
+
 .controlRight {
    width: 40px;
    vertical-align: top;
    text-align:left;
 }
+
 .pageLinks {
    border: thin solid Black;
    background: PowderBlue;
+}
+
+
+/**************************************** Page Layout Styling *************************************************/
+
+/* ----------- Wrapper -----------*/
+#wrapper {
+	width:750px;
+	margin:0 auto;
+	width:1000px;
+	text-align:left;
+	background-color:#fff;
+	text-align:left;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+
+
+/* ----------- Header ------------ */
+#header {
+	background-color: #FFFFFF;
+    height: 50px;
+    padding-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+hr {
+	width:50%;
+	color:#b7ddf2;
+}
+
+h1 {
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:8px;
+}
+
+img.header_image {
+	padding-left:0px;
+}
+
+.header_text {
+	font-size:48px;
+	font-weight:bold;
+	color:#A60000;
+}
+
+/* ---------- Content ------------ */
+
+#content {
+	float:left;
+	width:90%;
+	padding-top:5px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+#content h1 {
+	font-size:28px;
+	color:#555;
+}
+
+#content p {
+	font-size:14px;
+	color:#333;
+}
+
+#content ul {
+	list-style-type:none;
+}
+
+#content ul li {
+	font-size:16px;
+	color:#333;
+	padding:4px;
+}
+
+#centered_div {
+	position:relative;
+	text-align:center;
+}
+
+#left_float {
+	float:left;
+	width:50%;
+}
+
+#right_float {
+	float:right;
+	width:50%;
+}
+
+/* -------- Footer --------------- */
+
+.clearing {clear:both;height:1px;overflow:hidden;}
+
+
+#footer {	
+	clear:both;
+	background-color: #777777;
+    border: 1px solid #777777;
+    color: #EFEFEF;
+    height: 75px;
+    padding-top: 10px;
+    text-align: center;
+    border-top:10px solid #fff;
+}
+
+#footer_links {
+	padding-bottom:8px;
+}
+
+#footer_links a {
+	color:#eee;
+	font-size:1.4em;
+}
+
+#footer_links a:hover {
+	color:navy;
+}
+
+#spacer {
+	height:10px;
+	width:100%;
 }
