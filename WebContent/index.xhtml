@@ -16,8 +16,9 @@
    		</div>
    		<div id="content">
 	   		<h:form>
-	         <h:dataTable value="#{tableData.customers}" var="customer"
-	                      styleClass="customers" headerClass="customersHeader"
+	   			<div style="overflow:auto; width:100%; height:200px;">
+	         	<h:dataTable value="#{tableData.customers}" var="customer"
+	                      styleClass="customers" headerClass="customersHeader" rowClasses="even-row, odd-row"
 	                      columnClasses="del,edit,id,first,last,address,city,prov,changes">
 	            <h:column>
 	            	<f:facet name="header">#{msgs.deleteHeader}</f:facet>
@@ -37,7 +38,10 @@
 	               			#{msgs.firstNameHeader}
 	               		</h:commandLink>
 	               	</f:facet>
-	               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
+	               <h:inputText value="#{customer.first}" id="fName" rendered="#{customer.editable}" size="10" required="true" requiredMessage="#{msgs.fNameRequired}">
+	               		<f:validateLength minimum="3" maximum="20"/>
+	               </h:inputText>
+	               <h:message for="fName" styleClass="errorMessage"/>
 	               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
@@ -46,26 +50,48 @@
 	               			#{msgs.lastNameHeader}
 	               		</h:commandLink>
 	               	</f:facet>
-	               <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
+	               <h:inputText value="#{customer.last}" id="lName" rendered="#{customer.editable}" size="10" required="true" requiredMessage="#{msgs.lNameRequired}">
+	               		<f:validateLength minimum="3" maximum="20"/>
+	               </h:inputText>
+	               <h:message for="lName" styleClass="errorMessage"/>
 	               <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.addressHeader}</f:facet>
-	               <h:inputText value="#{customer.address}" rendered="#{customer.editable}" size="10"/>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByAddress}">
+	               			#{msgs.addressHeader}
+	               		</h:commandLink>
+	               	</f:facet>
+	               <h:inputText value="#{customer.address}" rendered="#{customer.editable}" size="10">
+	               </h:inputText>
 	               <h:outputText value="#{customer.address}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.cityHeader}</f:facet>
-	               <h:inputText value="#{customer.city}" rendered="#{customer.editable}" size="10"/>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByCity}">
+	               			#{msgs.cityHeader}
+	               		</h:commandLink>
+	               	</f:facet>
+	               <h:inputText value="#{customer.city}" rendered="#{customer.editable}" size="10">
+	               </h:inputText>
 	               <h:outputText value="#{customer.city}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.provHeader}</f:facet>
-	               <h:inputText value="#{customer.prov}" rendered="#{customer.editable}" size="10"/>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByProv}">
+	               			#{msgs.provHeader}
+	               		</h:commandLink>
+	               	</f:facet>
+	               <h:inputText value="#{customer.prov}" rendered="#{customer.editable}" size="10">
+	               </h:inputText>
 	               <h:outputText value="#{customer.prov}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.phoneHeader}</f:facet>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByPhone}">
+	               			#{msgs.phoneHeader}
+	               		</h:commandLink>
+	               	</f:facet>
 	               <h:inputText value="#{customer.phone}" rendered="#{customer.editable}" size="10"/>
 	               <h:outputText value="#{customer.phone}" rendered="#{not customer.editable}"/>
 	            </h:column>
@@ -74,23 +100,32 @@
 	            	<h:commandButton value="#{msgs.changesButtonText}" action="#{tableData.save}"/>
 	            </h:column>
 	         </h:dataTable>
+	         </div>
 	      </h:form>
 	      
 	      <h:form>
 	      		<h:panelGrid columns="1">
 	      			<h1>#{msgs.inputHeader}</h1>
 	      			#{msgs.firstNamePrompt}
-	      			<h:inputText value="#{temp.first}" />
+	      			<h:inputText value="#{temp.first}" id="firstName" required="true" requiredMessage="#{msgs.fNameRequired}">
+	      			</h:inputText>
+	      			<h:message for="firstName" styleClass="errorMessage"/>
 	      			#{msgs.lastNamePrompt}
-	      			<h:inputText value="#{temp.last}" />
+	      			<h:inputText value="#{temp.last}" id="lastName" required="true" requiredMessage="#{msgs.lNameRequired}">
+	      			</h:inputText>
+	      			<h:message for="lastName" styleClass="errorMessage"/>
 	      			#{msgs.addressPrompt}
-	      			<h:inputText value="#{temp.address}" />
+	      			<h:inputText value="#{temp.address}" id="address">
+	      			</h:inputText>
 	      			#{msgs.cityPrompt}
-	      			<h:inputText value="#{temp.city}" />
+	      			<h:inputText value="#{temp.city}" id="city">
+	      			</h:inputText>
 	      			#{msgs.provPrompt}
-	      			<h:inputText value="#{temp.prov}" />
+	      			<h:inputText value="#{temp.prov}" id="prov">
+	      			</h:inputText>
 	      			#{msgs.phonePrompt}
-	      			<h:inputText value="#{temp.phone}" />
+	      			<h:inputText value="#{temp.phone}" id="phone">
+	      			</h:inputText>
 	      			<h:commandButton value="#{msgs.addButtonText}" action="#{tableData.add(temp)}" />
 	      		</h:panelGrid>
 	      		

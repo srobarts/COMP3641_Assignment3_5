@@ -10,13 +10,23 @@ html, body{
 
 a {
 	text-decoration:none;
-	color:#777;
+	color:#fff;
 }
 		
 a:hover {
 	color:#A60000;
 	text-decoration:underline;
 	}
+	
+.errorMessage {
+   color:red; 
+}
+
+#error_container {
+	position:relative;
+	width:800px;
+	text-align:center;
+}
 
 /********************************** JSF Specific Styling ***********************************/
 .customers {
@@ -41,6 +51,15 @@ a:hover {
    text-align: center;
    background: PowderBlue;
 }
+
+tr.even-row td{
+   background-color: #eee;
+}
+td.odd-row td{
+   background-color: #f7f7f7;
+}
+
+
 .del {
    text-align: center;
    color: Black;
