@@ -18,7 +18,7 @@
 	   		<h:form>
 	         <h:dataTable value="#{tableData.customers}" var="customer"
 	                      styleClass="customers" headerClass="customersHeader"
-	                      columnClasses="del,edit,id,last,first,changes">
+	                      columnClasses="del,edit,id,first,last,address,city,prov,changes">
 	            <h:column>
 	            	<f:facet name="header">#{msgs.deleteHeader}</f:facet>
 	               <h:commandLink value="Delete" action="#{tableData.deleteRow(customer)}"/>
@@ -32,14 +32,42 @@
 	            	<h:outputText value="#{customer.id}" />            
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.firstNameHeader}</f:facet>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByFirst}">
+	               			#{msgs.firstNameHeader}
+	               		</h:commandLink>
+	               	</f:facet>
+	               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">
+	               		<h:commandLink action="#{tableData.sortByLast}">
+	               			#{msgs.lastNameHeader}
+	               		</h:commandLink>
+	               	</f:facet>
 	               <h:inputText value="#{customer.last}" rendered="#{customer.editable}" size="10"/>
 	               <h:outputText value="#{customer.last}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
-	               <f:facet name="header">#{msgs.lastNameHeader}</f:facet>
-	               <h:inputText value="#{customer.first}" rendered="#{customer.editable}" size="10"/>
-	               <h:outputText value="#{customer.first}" rendered="#{not customer.editable}"/>
+	               <f:facet name="header">#{msgs.addressHeader}</f:facet>
+	               <h:inputText value="#{customer.address}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.address}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.cityHeader}</f:facet>
+	               <h:inputText value="#{customer.city}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.city}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.provHeader}</f:facet>
+	               <h:inputText value="#{customer.prov}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.prov}" rendered="#{not customer.editable}"/>
+	            </h:column>
+	            <h:column>
+	               <f:facet name="header">#{msgs.phoneHeader}</f:facet>
+	               <h:inputText value="#{customer.phone}" rendered="#{customer.editable}" size="10"/>
+	               <h:outputText value="#{customer.phone}" rendered="#{not customer.editable}"/>
 	            </h:column>
 	            <h:column>
 	            	<f:facet name="header">#{msgs.updateHeader}</f:facet>
@@ -47,6 +75,27 @@
 	            </h:column>
 	         </h:dataTable>
 	      </h:form>
+	      
+	      <h:form>
+	      		<h:panelGrid columns="1">
+	      			<h1>#{msgs.inputHeader}</h1>
+	      			#{msgs.firstNamePrompt}
+	      			<h:inputText value="#{temp.first}" />
+	      			#{msgs.lastNamePrompt}
+	      			<h:inputText value="#{temp.last}" />
+	      			#{msgs.addressPrompt}
+	      			<h:inputText value="#{temp.address}" />
+	      			#{msgs.cityPrompt}
+	      			<h:inputText value="#{temp.city}" />
+	      			#{msgs.provPrompt}
+	      			<h:inputText value="#{temp.prov}" />
+	      			#{msgs.phonePrompt}
+	      			<h:inputText value="#{temp.phone}" />
+	      			<h:commandButton value="#{msgs.addButtonText}" action="#{tableData.add(temp)}" />
+	      		</h:panelGrid>
+	      		
+	      </h:form>
+	      
       </div> <!-- content -->
       <div id="footer">
       	<p>Copyright 2011 Scott Robarts</p>

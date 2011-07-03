@@ -14,13 +14,17 @@ public class Customer implements Serializable {
 	private String last;
 	private String address;
 	private String phone;
+	private String city;
+	private String prov;
 	private boolean editable;
 
-   public Customer(int id, String first, String last, String address, String phone) {
+   public Customer(int id, String first, String last, String address, String city, String prov, String phone) {
 	  this.id = id;
       this.first = first;
       this.last = last;
       this.address = address;
+      this.city = city;
+      this.prov = prov;
       this.phone = phone;
    }
    
@@ -38,6 +42,12 @@ public class Customer implements Serializable {
    
    public void setPhone(String newValue) { phone = newValue; }     
    public String getPhone() { return phone; }
+   
+   public void setCity(String newValue) { city = newValue; }     
+   public String getCity() { return city; }
+   
+   public void setProv(String newValue) { prov = newValue; }     
+   public String getProv() { return prov; }
    
    public boolean isEditable() { return editable; }
    public void setEditable(boolean newValue) { editable = newValue; }
