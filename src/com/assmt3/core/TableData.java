@@ -19,6 +19,7 @@ import com.assmt3.core.Customer;
 public class TableData implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private SortFilterModel<Customer> filterModel;
+	//
 	
 	private ArrayList<Customer> customers = new ArrayList<Customer>(Arrays.asList(
 		new Customer(1, "Anna", "Keeney", "100 Lonsdale", "North Vancouver", "BC", "654-333-1212"),
